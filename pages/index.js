@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { DefaultLayout as Layout } from '../components/Layout'
 import DiscoverMovie from '../components/DiscoverMovie';
+import Footer from '../components/Footer';
 
 export default function Home(props) {
   const { discoverMovie } = props;
@@ -18,6 +19,7 @@ export default function Home(props) {
             movies={discoverMovie.results}
           />
         </div>
+        <Footer/>
       </div>
     </Layout>
   )
