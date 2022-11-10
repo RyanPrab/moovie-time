@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const DropdownContainer = styled.div.attrs(props => ({
-  className: `bg-white ${props.visible ? 'flex-col' : 'hidden'} space-y-3 rounded-md shadow-md p-4 text-black ${props?.small ? 'max-w-md' : ''}`
+  className: `${props.dark ? 'bg-second' : 'bg-white'} ${props.visible ? 'flex-col' : 'hidden'} space-y-3 rounded-md shadow-md p-4 text-black ${props?.small ? 'max-w-md' : ''}`
 }))`
   z-index: 5;
   min-width: 350px;
@@ -50,7 +50,8 @@ export default function MiniDropdown(props) {
     arrowRef,
     arrowStyles,
     offsetStyles,
-    small
+    small,
+    dark
   } = props;
 
   return (
@@ -69,6 +70,7 @@ export default function MiniDropdown(props) {
         style={offsetStyles}
         visible={visible}
         small={small}
+        dark={dark}
       >
         {children}
       </DropdownContainer>
