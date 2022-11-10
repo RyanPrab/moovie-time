@@ -58,7 +58,7 @@ export default function Sliders(props) {
   const sliderSetting = {
     type: 'loop',
     gap: '1rem',
-    autoplay: false,
+    autoplay: true,
     pauseOnHover: true,
     pauseOnFocus: true,
     resetProgress: false,

@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import { usePopper } from 'react-popper';
 import dynamic from "next/dynamic";
 import { useGenreContext } from '../../context';
+import Link from 'next/link';
 const MiniDropdown = dynamic(() => import('./MiniDropdown'), { ssr: false });
 
 const Section = styled.div.attrs(() => ({
@@ -18,6 +19,7 @@ export default function DropdwonCategories(props) {
   const [{ genres }] = useGenreContext();
   const menuRef = useRef(null);
   const arrowRef = useRef(null);
+  console.log(genres);
 
   const { styles, attributes, update: updateDropdownCategory } = usePopper(
     CategoriesRef.current,
@@ -103,11 +105,13 @@ export default function DropdwonCategories(props) {
         {
           genres?.genres?.map((item, index) => {
             return (
-              <Item
-                key={index}
-              >
-                {item?.name}
-              </Item>
+              <Link href={`/categories/${item.id}`}>
+                <Item
+                  key={index}
+                >
+                  {item?.name}
+                </Item>
+              </Link>
             )
           })
         }
